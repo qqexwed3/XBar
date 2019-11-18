@@ -16,5 +16,24 @@
         android:id="@+id/gameFragment"
         android:name="buu.informatics.s59160935.xbar.gameFragment"
         android:label="gameFragment"
-        tools:layout="@layout/game_fragment" />
+        tools:layout="@layout/game_fragment" >
+        <action
+            android:id="@+id/action_gameFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="buu.informatics.s59160935.xbar.resultFragment"
+        android:label="resultFragment" >
+        <action
+            android:id="@+id/action_resultFragment_to_titleFragment"
+            app:destination="@id/titleFragment" />
+        <action
+            android:id="@+id/action_resultFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="buu.informatics.s59160935.xbar.aboutFragment"
+        android:label="aboutFragment" />
 </navigation>

@@ -9,26 +9,29 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import buu.informatics.s59160935.xbar.databinding.GameFragmentBinding
+import buu.informatics.s59160935.xbar.databinding.ResultFragmentBinding
 
 
-class gameFragment : Fragment() {
+class resultFragment : Fragment() {
 
     companion object {
-        fun newInstance() = gameFragment()
+        fun newInstance() = resultFragment()
     }
 
-    private lateinit var viewModel: GameViewModel
+    private lateinit var viewModel: ResultViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val binding = DataBindingUtil.inflate<ResultFragmentBinding>(inflater,
+            R.layout.result_fragment,container,false)
 
-        val binding = DataBindingUtil.inflate<GameFragmentBinding>(inflater,
-            R.layout.game_fragment,container,false)
-
-        binding.choice1Button.setOnClickListener { view : View ->
-            view.findNavController().navigate(R.id.action_gameFragment_to_resultFragment)
+        binding.homeButton.setOnClickListener { view : View ->
+            view.findNavController().navigate(R.id.action_resultFragment_to_titleFragment)
+        }
+        binding.playAgainButton.setOnClickListener { view : View ->
+            view.findNavController().navigate(R.id.action_resultFragment_to_gameFragment)
         }
         setHasOptionsMenu(true)
         return binding.root
@@ -36,7 +39,7 @@ class gameFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(ResultViewModel::class.java)
         // TODO: Use the ViewModel
     }
 

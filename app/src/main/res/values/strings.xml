@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Xbar</string>
+    <string name="name_title">X BAR</string>
+    <string name="play_button_text">PLAY</string>
+    <string name="history_button_text">HISTORY</string>
+    <string name="choice1_button">Answer1</string>
+    <string name="choice2_button">Answer2</string>
+    <string name="life_text">LIFE :</string>
+    <string name="liferemain_text">3</string>
+    <string name="time_text">TIME:</string>
+    <string name="timeremain_text">30.00</string>
+    <string name="score_text">SCORE :</string>
+    <string name="getScore_text">100</string>
+    <string name="playAgain_text">PLAY AGAIN!</string>
+    <string name="home_text">HOME</string>
 </resources>
