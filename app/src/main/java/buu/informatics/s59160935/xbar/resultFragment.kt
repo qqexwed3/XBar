@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import buu.informatics.s59160935.xbar.databinding.GameFragmentBinding
@@ -27,12 +28,18 @@ class resultFragment : Fragment() {
         val binding = DataBindingUtil.inflate<ResultFragmentBinding>(inflater,
             R.layout.result_fragment,container,false)
 
+        val args = gameFragmentArgs.fromBundle(arguments!!)
+        Toast.makeText(context, "score: ${args.score}", Toast.LENGTH_LONG).show()
+
         binding.homeButton.setOnClickListener { view : View ->
             view.findNavController().navigate(R.id.action_resultFragment_to_titleFragment)
         }
         binding.playAgainButton.setOnClickListener { view : View ->
-            view.findNavController().navigate(R.id.action_resultFragment_to_gameFragment)
+            view.findNavController().navigate(resultFragmentDirections.actionResultFragmentToGameFragment(args.score))
         }
+
+
+
         setHasOptionsMenu(true)
         return binding.root
     }

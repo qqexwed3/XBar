@@ -28,7 +28,8 @@ class gameFragment : Fragment() {
             R.layout.game_fragment,container,false)
 
         binding.choice1Button.setOnClickListener { view : View ->
-            view.findNavController().navigate(R.id.action_gameFragment_to_resultFragment)
+//            view.findNavController().navigate(R.id.action_gameFragment_to_resultFragment)
+            view.findNavController().navigate(gameFragmentDirections.actionGameFragmentToResultFragment(0))
         }
         setHasOptionsMenu(true)
         return binding.root
