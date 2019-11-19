@@ -13,4 +13,6 @@
     <string name="getScore_text">100</string>
     <string name="playAgain_text">PLAY AGAIN!</string>
     <string name="home_text">HOME</string>
+    <string name="share_success_text">score: %1$s</string>
+    <string name="share">SHARE</string>
 </resources>

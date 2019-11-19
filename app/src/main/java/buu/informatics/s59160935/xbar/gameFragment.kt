@@ -1,13 +1,13 @@
 package buu.informatics.s59160935.xbar
 
+import android.content.Intent
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import buu.informatics.s59160935.xbar.databinding.GameFragmentBinding
 
 
@@ -40,5 +40,6 @@ class gameFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
         // TODO: Use the ViewModel
     }
+
 
 }
