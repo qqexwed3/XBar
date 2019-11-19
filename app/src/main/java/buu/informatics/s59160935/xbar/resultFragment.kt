@@ -19,6 +19,7 @@ class resultFragment : Fragment() {
     }
 
     private lateinit var viewModel: ResultViewModel
+    private lateinit var viewModelFactory: ResultViewModelFactory
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,15 +28,20 @@ class resultFragment : Fragment() {
         val binding = DataBindingUtil.inflate<ResultFragmentBinding>(inflater,
             R.layout.result_fragment,container,false)
 
-        val args = gameFragmentArgs.fromBundle(arguments!!)
-        Toast.makeText(context, "score: ${args.score}", Toast.LENGTH_LONG).show()
+        viewModelFactory = ResultViewModelFactory(resultFragmentArgs.fromBundle(arguments!!).score)
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(ResultViewModel::class.java)
+
+
+        Toast.makeText(context, "score: ${viewModel.score}", Toast.LENGTH_LONG).show()
 
         binding.homeButton.setOnClickListener { view : View ->
             view.findNavController().navigate(R.id.action_resultFragment_to_titleFragment)
         }
         binding.playAgainButton.setOnClickListener { view : View ->
-            view.findNavController().navigate(resultFragmentDirections.actionResultFragmentToGameFragment(args.score))
+            view.findNavController().navigate(resultFragmentDirections.actionResultFragmentToGameFragment())
         }
+
+        binding.scoreText.text = viewModel.score.toString()
 
 
 
@@ -50,7 +56,7 @@ class resultFragment : Fragment() {
     }
 
     private fun getShareIntent() : Intent {
-        val args = gameFragmentArgs.fromBundle(arguments!!)
+        val args = resultFragmentArgs.fromBundle(arguments!!)
         val shareIntent = Intent(Intent.ACTION_SEND)
         shareIntent.setType("text/plain").putExtra(
             Intent.EXTRA_TEXT,

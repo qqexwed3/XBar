@@ -10,7 +10,8 @@
         tools:layout="@layout/title_fragment">
         <action
             android:id="@+id/action_titleFragment_to_gameFragment"
-            app:destination="@id/gameFragment" />
+            app:destination="@id/gameFragment"
+            app:popUpTo="@+id/titleFragment" />
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
@@ -19,10 +20,8 @@
         tools:layout="@layout/game_fragment" >
         <action
             android:id="@+id/action_gameFragment_to_resultFragment"
-            app:destination="@id/resultFragment" />
-        <argument
-            android:name="score"
-            app:argType="integer" />
+            app:destination="@id/resultFragment"
+            app:popUpTo="@+id/titleFragment" />
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
@@ -30,10 +29,12 @@
         android:label="resultFragment" >
         <action
             android:id="@+id/action_resultFragment_to_titleFragment"
-            app:destination="@id/titleFragment" />
+            app:destination="@id/titleFragment"
+            app:popUpTo="@+id/titleFragment" />
         <action
             android:id="@+id/action_resultFragment_to_gameFragment"
-            app:destination="@id/gameFragment" />
+            app:destination="@id/gameFragment"
+            app:popUpTo="@+id/titleFragment" />
         <argument
             android:name="score"
             app:argType="integer" />

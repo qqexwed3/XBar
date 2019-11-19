@@ -2,10 +2,11 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".gameFragment">
+<data>
+    <variable
+        name="gameViewModel"
+        type="buu.informatics.s59160935.xbar.GameViewModel" />
+</data>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -15,105 +16,68 @@
                 android:id="@+id/choice1_button"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
-                android:layout_marginStart="55dp"
-                android:layout_marginTop="264dp"
-                android:layout_marginEnd="56dp"
-                android:text="@string/choice1_button"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_marginTop="36dp"
+                android:text="@{gameViewModel.s1}"
+                android:onClick="@{() -> gameViewModel.onCheckAnswer(1)}"
+                app:layout_constraintEnd_toEndOf="@+id/ScoreText"
+                app:layout_constraintHorizontal_bias="0.414"
+                app:layout_constraintStart_toStartOf="@+id/ScoreText"
+                app:layout_constraintTop_toBottomOf="@+id/ScoreText"
+                tools:text="7 + 1" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/choice2_button"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
-                android:layout_marginStart="55dp"
-                android:layout_marginTop="80dp"
-                android:layout_marginEnd="56dp"
-                android:text="@string/choice2_button"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/choice1_button" />
+                android:layout_marginTop="52dp"
+                android:text="@{gameViewModel.s2}"
+                android:onClick="@{() -> gameViewModel.onCheckAnswer(2)}"
+                app:layout_constraintEnd_toEndOf="@+id/choice1_button"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/choice1_button"
+                app:layout_constraintTop_toBottomOf="@+id/choice1_button"
+                tools:text=" 3 + 4" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/lifeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="119dp"
-                android:layout_marginTop="76dp"
-                android:layout_marginEnd="44dp"
-                android:text="@string/life_text"
+                android:layout_marginTop="64dp"
+                android:text="@{gameViewModel.currentLifeString}"
                 android:textColor="@color/colorAccent"
                 android:textSize="30sp"
-                app:layout_constraintEnd_toStartOf="@+id/textView3"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button2" />
+                app:layout_constraintEnd_toEndOf="@+id/choice2_button"
+                app:layout_constraintStart_toStartOf="@+id/choice2_button"
+                app:layout_constraintTop_toBottomOf="@+id/choice2_button"
+                tools:text="LIFE : 3" />
 
             <TextView
-                android:id="@+id/textView3"
-                android:layout_width="17dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="33dp"
-                android:layout_marginTop="76dp"
-                android:layout_marginEnd="151dp"
-                android:text="@string/liferemain_text"
-                android:textColor="@color/colorAccent"
-                android:textSize="30sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.611"
-                app:layout_constraintStart_toEndOf="@+id/textView"
-                app:layout_constraintTop_toBottomOf="@+id/button2" />
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="80dp"
-                android:layout_marginTop="68dp"
-                android:layout_marginEnd="60dp"
-                android:text="@string/time_text"
-                android:textColor="@color/design_default_color_primary"
-                android:textSize="36sp"
-                app:layout_constraintEnd_toStartOf="@+id/textView5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/timeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="68dp"
-                android:layout_marginEnd="88dp"
-                android:text="@string/timeremain_text"
+                android:text="@{gameViewModel.currentTimerString}"
                 android:textColor="@color/design_default_color_primary"
                 android:textSize="36sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="68dp"
-                android:layout_marginTop="30dp"
-                android:text="@string/score_text"
-                android:textColor="@color/colorPrimary"
-                android:textSize="36sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="TIME : 30.00" />
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/ScoreText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="103dp"
-                android:text="@string/getScore_text"
+                android:layout_marginTop="36dp"
+                android:text="@{gameViewModel.currentScoreString}"
                 android:textColor="@color/colorPrimary"
                 android:textSize="36sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                app:layout_constraintEnd_toEndOf="@+id/timeText"
+                app:layout_constraintHorizontal_bias="0.523"
+                app:layout_constraintStart_toStartOf="@+id/timeText"
+                app:layout_constraintTop_toBottomOf="@+id/timeText"
+                tools:text="SCORE : 800" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </FrameLayout>
+
 </layout>

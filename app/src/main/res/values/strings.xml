@@ -13,6 +13,7 @@
     <string name="getScore_text">100</string>
     <string name="playAgain_text">PLAY AGAIN!</string>
     <string name="home_text">HOME</string>
-    <string name="share_success_text">score: %1$s</string>
+    <string name="share_success_text">ฉันได้คะแนน %1$s จากแอพ Xbar!</string>
     <string name="share">SHARE</string>
+    <string name="answer">%1$d + %2$d!</string>
 </resources>

@@ -25,7 +25,7 @@ class titleFragment : Fragment() {
             R.layout.title_fragment,container,false)
         viewModel = ViewModelProviders.of(this).get(TitleViewModel::class.java)
         binding.playButton.setOnClickListener { view : View ->
-            view.findNavController().navigate(titleFragmentDirections.actionTitleFragmentToGameFragment(0))
+            view.findNavController().navigate(titleFragmentDirections.actionTitleFragmentToGameFragment())
         }
         Timber.i("onCreate called")
         setHasOptionsMenu(true)
