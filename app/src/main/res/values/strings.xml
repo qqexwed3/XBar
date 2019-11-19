@@ -16,4 +16,6 @@
     <string name="share_success_text">ฉันได้คะแนน %1$s จากแอพ Xbar!</string>
     <string name="share">SHARE</string>
     <string name="answer">%1$d + %2$d!</string>
+    <string name="howto_text">หาค่าเฉลี่ยแต่ละตัวเลือก และเลือกค่าที่น้อยที่สุด</string>
+    <string name="about_text">The x bar game is a game that is witty and created to train the brain to think quickly. This project was created by Chakrit Pongprayot 59160935.</string>
 </resources>

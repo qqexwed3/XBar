@@ -12,6 +12,9 @@
             android:id="@+id/action_titleFragment_to_gameFragment"
             app:destination="@id/gameFragment"
             app:popUpTo="@+id/titleFragment" />
+        <action
+            android:id="@+id/action_titleFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
@@ -43,4 +46,12 @@
         android:id="@+id/aboutFragment"
         android:name="buu.informatics.s59160935.xbar.aboutFragment"
         android:label="aboutFragment" />
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="buu.informatics.s59160935.xbar.historyFragment"
+        android:label="historyFragment" >
+        <action
+            android:id="@+id/action_historyFragment_to_titleFragment"
+            app:destination="@id/titleFragment" />
+    </fragment>
 </navigation>

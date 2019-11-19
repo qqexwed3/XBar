@@ -8,6 +8,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import buu.informatics.s59160935.xbar.databinding.TitleFragmentBinding
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.title_fragment.*
 import timber.log.Timber
 
 
@@ -24,9 +26,21 @@ class titleFragment : Fragment() {
         val binding = DataBindingUtil.inflate<TitleFragmentBinding>(inflater,
             R.layout.title_fragment,container,false)
         viewModel = ViewModelProviders.of(this).get(TitleViewModel::class.java)
+
+        binding.nameTitleText.setOnClickListener { view ->
+            Snackbar.make(view, "X BAR GAME!!", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()
+        }
+
+
         binding.playButton.setOnClickListener { view : View ->
             view.findNavController().navigate(titleFragmentDirections.actionTitleFragmentToGameFragment())
         }
+
+        binding.historyButton.setOnClickListener { view : View ->
+            view.findNavController().navigate(titleFragmentDirections.actionTitleFragmentToHistoryFragment())
+        }
+
         Timber.i("onCreate called")
         setHasOptionsMenu(true)
         return binding.root

@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
+import buu.informatics.s59160935.xbar.database.ScoreDatabase
 import buu.informatics.s59160935.xbar.databinding.GameFragmentBinding
 
 

@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
+import buu.informatics.s59160935.xbar.database.ScoreDatabase
 import buu.informatics.s59160935.xbar.databinding.GameFragmentBinding
 import buu.informatics.s59160935.xbar.databinding.ResultFragmentBinding
 
@@ -28,9 +29,11 @@ class resultFragment : Fragment() {
         val binding = DataBindingUtil.inflate<ResultFragmentBinding>(inflater,
             R.layout.result_fragment,container,false)
 
-        viewModelFactory = ResultViewModelFactory(resultFragmentArgs.fromBundle(arguments!!).score)
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(ResultViewModel::class.java)
+        val application = requireNotNull(this.activity).application
+        val dataSource = ScoreDatabase.getInstance(application).scoreDatabaseDAO
 
+        viewModelFactory = ResultViewModelFactory(resultFragmentArgs.fromBundle(arguments!!).score, dataSource, application)
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(ResultViewModel::class.java)
 
         Toast.makeText(context, "score: ${viewModel.score}", Toast.LENGTH_LONG).show()
 
@@ -42,8 +45,6 @@ class resultFragment : Fragment() {
         }
 
         binding.scoreText.text = viewModel.score.toString()
-
-
 
         setHasOptionsMenu(true)
         return binding.root
