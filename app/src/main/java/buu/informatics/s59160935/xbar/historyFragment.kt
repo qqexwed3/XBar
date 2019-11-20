@@ -43,9 +43,7 @@ class historyFragment : Fragment() {
         binding.listHistory.adapter = adapter
 
         viewModel.scoreList?.observe(this, Observer {
-            //            Timber.i(list.size.toString())
             adapter.submitList(it)
-//            Log.i("asd0", it.size.toString())
         })
 
         return binding.root
